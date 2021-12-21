@@ -1,9 +1,13 @@
 import { StrengthPipe } from "./strength.pipe"
 
+//No dependencies, just one method
+
 describe('StrengthPipe', () => {
     it('should display weak if strength is 5', () => {
+        //arrange
         let pipe = new StrengthPipe();
-
+        //act is pipe.transform(5)
+        //assert
         expect(pipe.transform(5)).toEqual('5 (weak)')
     })
 
