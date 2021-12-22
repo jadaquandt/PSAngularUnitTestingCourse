@@ -22,7 +22,7 @@ describe("HeroesComponent", () => {
         component = new HeroesComponent(mockHeroService);
     });
 
-    describe("delete", () => {
+    describe('delete', () => {
         it("should remove the indicated hero from the heroes list", () => {
             //"of" = simple observable that has the value we pass into the method call
             mockHeroService.deleteHero.and.returnValue(of(true));
@@ -34,12 +34,12 @@ describe("HeroesComponent", () => {
             expect(component.heroes.length).toBe(2);
         });
 
-        it("should call deleteHero", () => {
+        it('should call deleteHero with the correct Hero', () => {
             mockHeroService.deleteHero.and.returnValue(of(true));
             component.heroes = HEROES;
             component.delete(HEROES[2]);
             //Duplication above is ok, bc we are telling the story of the function
-
+            expect(mockHeroService.deleteHero).toHaveBeenCalled();
         });
     });
 });
